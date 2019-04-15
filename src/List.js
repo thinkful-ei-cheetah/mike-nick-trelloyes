@@ -1,22 +1,24 @@
 import './List.css';
 import Card from './Card';
-
-// this.props.cards = [
-//   {title: '', content: ''},
-//   {title: '', content: ''}
-// ]
+import React from 'react';
 
 class List extends React.Component {
-  render() {
-    const cardsList = this.props.cards.map( (card, id) => {
-      const cardId = ``;
-      <Card title={this.props.cards.title} content={this.props.cards.content} />
-    });
 
+  buildCardJSX() {
+    return this.props.cards.map((card, i) => {
+      return <Card title={card.title} content={card.content} key={i} />
+    })
+  }
+
+  render() {
     return (
       <section className='List'>
-        <header>{this.props.header}</header>
-        <div className='List-cards'></div>
+        <header className='List-header'>
+          {this.props.header}
+        </header>
+        <div className='List-cards'>
+          {this.buildCardJSX()}
+        </div>
       </section>
     );
   }
