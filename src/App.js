@@ -1,12 +1,22 @@
 import React from 'react';
 import './App.css';
-import STORE from './store.js';
-import Card from './Card';
 
-function App() {
+function buildCardsArray(cardIds, allCards) {
+  return cardIds.map(key => {
+    return allCards[key];
+  });
+};
+
+function App(props) {
+  const cards = buildCardsArray(props.STORE.lists[0].cardIds, props.STORE.allCards);
+
   return (
     <main className='App'>
-      {/* < Card title='Thinkful Workshop' content='The best way to learn anything'/> */}
+      <header>
+        <h1></h1>
+        <div className="App-list">
+        </div>
+      </header>
     </main>
   );
 }
