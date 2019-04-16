@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Component when NO props given should render empty if no title or content is given 1`] = `
+<div
+  className="Card"
+>
+  <h3 />
+  <p />
+</div>
+`;
+
+exports[`Card Component when props given it displays title and content 1`] = `
+<div
+  className="Card"
+>
+  <h3>
+    foo
+  </h3>
+  <p>
+    bar
+  </p>
+</div>
+`;
