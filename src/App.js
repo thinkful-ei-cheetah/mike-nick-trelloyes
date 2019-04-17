@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import List from './List';
 
 function buildCardsArray(cardIds, allCards) {
   return cardIds.map(key => {
@@ -8,13 +9,20 @@ function buildCardsArray(cardIds, allCards) {
 };
 
 function App(props) {
-  const cards = buildCardsArray(props.STORE.lists[0].cardIds, props.STORE.allCards);
+  const arrayOfLists = props.STORE.lists.map( list =>
+    <List 
+      key={list.id} 
+      header={list.header} 
+      cards={buildCardsArray(list.cardIds, props.STORE.allCards)} 
+    />
+  );
 
   return (
     <main className='App'>
-      <header>
-        <h1></h1>
+      <header className='App-header'>
+        <h1>Trelloyes!</h1>
         <div className="App-list">
+          {arrayOfLists}
         </div>
       </header>
     </main>
